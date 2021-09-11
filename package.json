@@ -2,12 +2,22 @@
   "name": "with-typescript",
   "version": "1.0.0",
   "scripts": {
-    "dev": "next",
+    "dev": "next dev",
+    "build:ssg": "run-s build export postbuild",
     "build": "next build",
+    "export": "next export",
     "start": "next start",
-    "type-check": "tsc"
+    "postbuild": "next-sitemap",
+    "type-check": "tsc",
+    "fmt": "run-s fmt:*",
+    "fmt:eslint": "yarn lint:eslint --fix",
+    "fmt:prettier": "yarn lint:prettier --write",
+    "lint": "run-s lint:*",
+    "lint:eslint": "eslint src --ext .ts,.tsx,.js,.jsx",
+    "lint:prettier": "prettier src/**/*.{html,js,json,ts,tsx,md} --ignore-path .gitignore -c"
   },
   "dependencies": {
+    "@react-three/fiber": "^6.0.16",
     "dotenv": "^8.2.0",
     "next": "latest",
     "next-images": "^1.7.0",
@@ -18,14 +28,18 @@
     "simple-icons": "^4.20.0",
     "styled-components": "^5.2.3",
     "tailwindcss": "^2.1.2",
+    "three": "^0.128.0",
     "twin.macro": "^2.3.3"
   },
   "devDependencies": {
+    "@babel/core": "^7.13.16",
+    "@babel/preset-env": "^7.13.15",
     "@types/node": "^12.12.21",
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.1",
     "@types/simple-icons": "^4.17.0",
     "@types/styled-components": "^5.1.9",
+    "@types/three": "^0.127.1",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
     "autoprefixer": "^10.2.5",

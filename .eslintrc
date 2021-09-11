@@ -15,7 +15,7 @@
     "SharedArrayBuffer": "readonly"
   },
   "plugins": ["react", "react-hooks", "jsx-a11y", "prettier", "import"],
-  "extends": ["plugin:react/recommended", "airbnb", "prettier"],
+  "extends": ["plugin:react/recommended", "prettier"],
   "rules": {
     "prettier/prettier": "error",
     "import/prefer-default-export": "off",
