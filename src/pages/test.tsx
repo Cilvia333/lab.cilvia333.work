@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import dynamic from 'next/dynamic';
+import { NextPage } from 'next';
 import {
   WebGLRenderer,
   Scene,
@@ -12,12 +12,16 @@ import {
   MeshPhongMaterial,
   Mesh,
 } from 'three';
-import styled from 'styled-components';
+import { css } from '@emotion/react';
 import tw from 'twin.macro';
 
 import Layout from '~/components/layout';
 
-const IndexPage = () => {
+const StyledCanvas = css`
+  ${tw`relative w-full`}
+`;
+
+const IndexPage: NextPage = () => {
   const EffectComposer = (
     await import(`three/examples/jsm/postprocessing/EffectComposer`)
   ).EffectComposer;
@@ -131,13 +135,9 @@ const IndexPage = () => {
   return (
     <Layout title="test">
       <h1>Hello Next.js 👋</h1>
-      <StyledCanvas ref={onCanvasLoaded} />
+      <canvas css={StyledCanvas} ref={onCanvasLoaded} />
     </Layout>
   );
 };
-
-const StyledCanvas = styled.canvas`
-  ${tw`relative w-full`}
-`;
 
 export default IndexPage;

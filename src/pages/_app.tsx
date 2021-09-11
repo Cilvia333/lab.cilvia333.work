@@ -1,8 +1,10 @@
 import React from 'react';
-import Head from 'next/head';
 import type { AppProps } from 'next/app';
+import { Global, CacheProvider } from '@emotion/react';
+import { cache } from '@emotion/css';
+import { GlobalStyles } from 'twin.macro';
 
-import GlobalStyle from '~/styles/global';
+import GlobalCss from '~/styles/global';
 
 import 'ress';
 
@@ -11,8 +13,11 @@ const MyApp: React.FC<AppProps> = (props) => {
 
   return (
     <>
-      <GlobalStyle />
-      <Component {...pageProps} />
+      <GlobalStyles />
+      <Global styles={GlobalCss} />
+      <CacheProvider value={cache}>
+        <Component {...pageProps} />
+      </CacheProvider>
     </>
   );
 };

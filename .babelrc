@@ -2,21 +2,24 @@
   "presets": [
     [
       "next/babel",
-      {
-        "preset-react": { "runtime": "automatic" }
-      }
-    ]
+     {
+       "preset-react": {
+         "runtime": "automatic",
+         "importSource": "@emotion/react"
+       }
+     }
+    ],
+    "@emotion/babel-preset-css-prop"
   ],
   "plugins": [
     "babel-plugin-macros",
     [
-      "module-resolver",         //  apply babel-plugin-module-resolver
+      "module-resolver",
       {
         "alias": {
           "~": "./src"
         }
       }
-    ],
-    "styled-components"
+    ]
   ]
 }
