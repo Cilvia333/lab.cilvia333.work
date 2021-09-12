@@ -3,7 +3,7 @@ import tw from 'twin.macro';
 
 const GlobalStyle = css`
   body {
-    ${tw`relative text-black text-base 2xl:py-48px lg:py-24px py-48px px-80px md:px-48px xs:px-24px px-16px`}
+    ${tw`relative text-black text-base`}
     font-feature-settings: 'pkna';
     min-height: 100vh;
   }

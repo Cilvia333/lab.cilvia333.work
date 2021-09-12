@@ -1,10 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
+import { css } from '@emotion/react';
+import tw from 'twin.macro';
 
-type Props = {
+interface Props {
   title?: string;
-};
+}
 
 const siteTitle = `playground.cilvia333.work`;
 const description = `description`;
@@ -12,10 +14,20 @@ const url = `playground.cilvia333.work`;
 const fullUrl = `https://${url}`;
 const color = `#FFFFFF`;
 
-const Layout: React.FC<Props> = (props) => {
-  const { children, title = `This is the default title` } = props;
+const headerStyle = css`
+  ${tw`fixed inset-x-0 top-0`};
+`;
+
+const footerStyle = css`
+  ${tw`w-full mt-12`};
+`;
+
+const Layout: React.FC<Props> = ({
+  children,
+  title = `This is the default title`,
+}) => {
   return (
-    <div>
+    <>
       <Head>
         <title>{`${siteTitle} ${title && `| ${title}`}`}</title>
         <meta charSet="utf-8" />
@@ -38,20 +50,19 @@ const Layout: React.FC<Props> = (props) => {
           data-basehost={url}
         />
       </Head>
-      <header>
+      <header css={headerStyle}>
         <nav>
           <Link href="/">
             <a>Home</a>
           </Link>
-          {` `}
         </nav>
       </header>
       {children}
-      <footer>
+      <footer css={footerStyle}>
         <hr />
         <span>I'm here to stay (Footer)</span>
       </footer>
-    </div>
+    </>
   );
 };
 

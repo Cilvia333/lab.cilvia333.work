@@ -2939,6 +2939,11 @@ glslify-loader@^2.0.0:
     loader-utils "^1.1.0"
     resolve "^1.3.3"
 
+gpucomputationrender-three@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/gpucomputationrender-three/-/gpucomputationrender-three-2.0.0.tgz#73e4f7b4329def9b74e4703a63a29abc65b197a2"
+  integrity sha512-GK+0QfBl3Qu/7pscQnQugvGprpeZ9n1PsHZBMTcIXKK5graazfHPInKnODiD3dY0+8ahNHV0PksEjbTm+0fHkQ==
+
 graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.2.0:
   version "4.2.6"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.6.tgz#ff040b2b0853b23c3d31027523706f1885d76bee"
