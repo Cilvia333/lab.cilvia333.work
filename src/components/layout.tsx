@@ -6,6 +6,7 @@ import tw from 'twin.macro';
 
 interface Props {
   title?: string;
+  navColor?: string;
 }
 
 const siteTitle = `playground.cilvia333.work`;
@@ -15,16 +16,17 @@ const fullUrl = `https://${url}`;
 const color = `#FFFFFF`;
 
 const headerStyle = css`
-  ${tw`fixed inset-x-0 top-0`};
+  ${tw`fixed w-full inset-x-0 top-0 p-4 z-10`};
 `;
 
 const footerStyle = css`
-  ${tw`w-full mt-12`};
+  ${tw`fixed w-full inset-x-0 bottom-0 p-4 z-10`};
 `;
 
 const Layout: React.FC<Props> = ({
   children,
   title = `This is the default title`,
+  navColor = `#FFFFFF`,
 }) => {
   return (
     <>
@@ -50,16 +52,31 @@ const Layout: React.FC<Props> = ({
           data-basehost={url}
         />
       </Head>
-      <header css={headerStyle}>
+      <header
+        css={css`
+          ${headerStyle};
+          color: ${navColor};
+        `}
+      >
         <nav>
           <Link href="/">
-            <a>Home</a>
+            <a
+              css={css`
+                color: ${navColor};
+              `}
+            >
+              Home
+            </a>
           </Link>
         </nav>
       </header>
       {children}
-      <footer css={footerStyle}>
-        <hr />
+      <footer
+        css={css`
+          ${footerStyle};
+          color: ${navColor};
+        `}
+      >
         <span>I'm here to stay (Footer)</span>
       </footer>
     </>
